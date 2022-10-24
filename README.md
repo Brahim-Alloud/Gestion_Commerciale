@@ -11,7 +11,7 @@
 
 * Contient tout les exercices de TP
 
-## Ruby-champs-formula-en. :
+## Ruby-champs-formula-en.txt :
 ---------------
 
 * Contient un petit formation ecrit par me qui expliquer qui peut generez data utiliser mockaroo.com et langue de programmation Ruby
