@@ -1,0 +1,60 @@
+I got database data from an beautifull website (mockaroo.com) and it works with Ruby Language to define whats the data gotta give every row 					The Formulas (paste every code in a terminal well show when you press the sigma symbol button beside every row):
+		The clients table formula :
+	NumClient : select type of row (Row Number) the blank gotta be 0%;
+	RaisonSocial : select type of row Bitcoin Adress and paste the next Ruby and the blank as usual 0%
+		code :
+		this = upper(field('RaisonSocial').gsub!(/\d+/,"")[1..3])
+	__randville : optional selection for the type of the column and the blank as usual 0%
+		code :
+		list = ["Rabat","Casablanca","Ouarzazate","Agadir","London","Bangkok",
+  "Kenitra","Tetouan","Mohammedia","Hong Kong","Dubai",
+  "Fez","Tangier","Marrakesh","Meknes","Oujda",
+  "Paris","New York","Berlin"]
+this = list.sample
+	__randnumma : select type of row Number and give it a big min:9999999999 and max:999999999999 for decimals gotta be 0 and the blank as usual 0%
+		code :
+		this = this.to_s
+	AdresseClient : select type of row Street Address and the blank as usual 0%
+		code : 
+		this = concat(field("AdresseClient")," , ",field("__randville"))
+	VilleClient : optional selection for the type of the column and the blank as usual 0%
+		code :
+		this = field("__randville")
+	Telephone : optional selection for the type of the column and the blank as usual 0%
+		code :
+		if ( field("__randville").match(/Rabat|Casablanca|Agadir|Ouarzazate|Fez|Kenitra|Tetouan|Mohammedia|Tangier|Marrakesh|Meknes|Oujda/)  )
+  then concat("06",field("__randnumma")[0..7])
+elsif field("__randville") == "London" then concat("+44 20 ",field("__randnumma")[0..3]," ",field("__randnumma")[4..7])
+elsif field("__randville") == "Bangkok" then concat("+66-02",field("__randnumma")[0..6])
+elsif field("__randville") == "Paris" then concat("00 33",field("__randnumma")[0..8])
+elsif field("__randville") == "New York" then concat("1-1212-",field("__randnumma")[0..6])
+elsif field("__randville") == "Berlin" then concat("1-4930-",field("__randnumma")[0..6])
+elsif field("__randville") == "Hong Kong" then concat("+852",field("__randnumma")[0..7])
+elsif field("__randville") == "Dubai" then concat("00-971-50-",field("__randnumma")[0..2],"-",field("__randnumma")[0..3])
+else "Got No Numbber" end
+And after the coloumns you are gonna find #Rows : change the Format to SQL and Table Name to clients and check include CREATE TABLE box 
+		The commande table formula :
+	NumCommande : select type of row (Row Number) the blank gotta be 0%;
+	NumClient : select type of row (Number) and give it a  min:50 and max:150 so the clients will be commanding between 50 and 150 for decimals gotta be 0 and the blank as usual 0%;
+	DateCommande : select type of row (Datetime) and give it date 10/23/2015 to 10/23/2022 format (yyyy-mm-dd) and blank as usual 0%
+		The produit table formula :
+	RefProduit : select type of row (Row Number) and blank as usual 0%
+	NomProduit : select type of row (Product (Grocery)) and the blank as usual 0% 
+	PrixUnitaire : select type of row (Money) and give it a  10 and 1000 and blank as usual 0%
+		code :
+		this.gsub!(/\$/,"")
+	QteStockee : select type of row (Money) and give it a  0 and 50 and blank as usual 0% decimals 0
+	Disbonible : select type of row (Boolean) and blank as usual 0%
+		code :
+		if field('QteStockee')>0 then this="Oui"
+else 'Non' end
+		The details commande table formula :
+	NumCommande : select type of row (Row Number) the blank gotta be 0%;
+	RefProduit : select type of row (Row Number) and give the min value 1 and max value the number of commandes the blank gotta be 0% and decimals 0;
+	QteCommandee : select type of row (Row Number) and give the min value 1 and max 6 the blank gotta be 0% and decimals 0;
+	
+	
+
+	
+
+
