@@ -1,30 +1,8 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1:3306
--- Generation Time: Oct 24, 2022 at 08:44 AM
--- Server version: 5.7.36
--- PHP Version: 7.4.26
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
 -- Database: `gestion_commercial`
 --
 CREATE DATABASE gestion_commercial;
 USE gestion_commercial;
--- --------------------------------------------------------
 
---
 -- Table structure for table `clients`
 --
 
@@ -166,9 +144,7 @@ INSERT INTO `clients` (`NumClient`, `RaisonSocial`, `AdresseClient`, `VilleClien
 (121, 'SSA', 'HAY ALMASSIRA , OUARZAZATE', 'Ouarzazate', '0644904074'),
 (122, 'LLA', 'Hay AL adarissa rue 19 , Madrid', 'Madrid', '+482919237325');
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `commandes`
 --
 
@@ -374,9 +350,7 @@ INSERT INTO `commandes` (`NumCommande`, `NumClient`, `DateCommande`) VALUES
 (186, 122, '2020-09-19'),
 (187, 4, '2020-09-19');
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `detailscommande`
 --
 
@@ -584,9 +558,7 @@ INSERT INTO `detailscommande` (`NumCommande`, `RefProduit`, `QteCommandee`) VALU
 (185, '536055138-0', 9),
 (186, '536055138-0', 9);
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `produits`
 --
 
@@ -705,8 +677,3 @@ INSERT INTO `produits` (`RefProduit`, `NomProduit`, `PrixUnitaire`, `QteStockee`
 ('441356735-8', 'Muffin Mix - Oatmeal', 291.26, 0, 'Non'),
 ('666343765-8', 'Cheese - Brie Roitelet', 154.46, 3, 'Oui'),
 ('382039024-3', 'Salmon - Atlantic, Skin On', 527.09, 34, 'Oui');
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
